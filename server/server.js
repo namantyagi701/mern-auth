@@ -13,7 +13,10 @@ connectDB();
 const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"]
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: allowedOrigins , credentials : true}));
+app.use(cors({
+  origin: "*", 
+  credentials: true
+}));
 
 app.get('/' , (req , res) => res.send("API Working")); //test
 app.use('/api/auth' , authRouter)
